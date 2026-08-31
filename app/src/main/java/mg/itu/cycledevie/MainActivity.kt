@@ -40,12 +40,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun partagerCollecte() {
-        // TODO — Tâche du mini-TP :
-        // Créer un Intent IMPLICITE (Intent.ACTION_SEND, type "text/plain")
-        // avec le texte "Collecte du jour : 4,5 kg de vanille",
-        // et le lancer via Intent.createChooser(...).
-        // Modèle : diapositive « Les Intents » du cours.
-        Log.i(tag, "partagerCollecte — à compléter !")
+        // Intent IMPLICITE : on ne nomme pas de classe, on décrit une action
+        // (ACTION_SEND) que le système va faire correspondre à toutes les
+        // apps capables de la traiter (Messages, Mail, WhatsApp, etc.).
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_TEXT, "Collecte du jour : 4,5 kg de vanille")
+        }
+        startActivity(Intent.createChooser(intent, "Partager la collecte via"))
     }
 
     override fun onStart() {
