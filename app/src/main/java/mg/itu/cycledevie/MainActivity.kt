@@ -40,9 +40,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun partagerCollecte() {
-        // Intent IMPLICITE : on ne nomme pas de classe, on décrit une action
-        // (ACTION_SEND) que le système va faire correspondre à toutes les
-        // apps capables de la traiter (Messages, Mail, WhatsApp, etc.).
         val intent = Intent(Intent.ACTION_SEND).apply {
             type = "text/plain"
             putExtra(Intent.EXTRA_TEXT, "Collecte du jour : 4,5 kg de vanille")
